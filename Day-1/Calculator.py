@@ -1,3 +1,4 @@
+## Day 1 - CLI Calculator
 
 def add(a,b):
     return a+b
