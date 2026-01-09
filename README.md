@@ -1,8 +1,3 @@
-Here’s a **clean, professional, and GitHub-ready README.md** for your **Python 30 Days Challenge**.
-You can copy–paste this directly into your repo.
-
----
-
 # 🚀 Python 30 Days Challenge
 
 A **30-day hands-on challenge** to become proficient in Python by building **real-world scripts, automation tools, CLI utilities, and desktop software** — one project every day.
