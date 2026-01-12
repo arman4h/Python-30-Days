@@ -49,11 +49,12 @@ def view_contacts():
     footer()
     
 def search_contact(key):
+    key = key.lower()
     with open(file_path, "r") as file:
         line = file.readline()
         while line:
             name, email, phone = line.strip().split(",")
-            if key in name.lower() or email.lower():
+            if key in name.lower() or key in email.lower():
                 print("\n Contact Found: ")
                 print("Name: ", name)
                 print("Email:", email)
