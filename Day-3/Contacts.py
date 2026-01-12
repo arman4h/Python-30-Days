@@ -1,4 +1,20 @@
-file_path = "./Contacts.txt"
+file_path = "Contacts.txt"
+
+def footer():
+    print("\n")
+    print("0.Main")
+    print("1.Exit")
+    myinput = input("Selection: ")
+    
+    if myinput == "0":
+        main()
+    elif myinput == "1":
+        print("Have a good day ! ")
+        return 0 
+    else:
+        print("Invalid Input Try Again: ")
+        footer()
+        
 
 def add_contacts():
     name = input("Enter Name: ")
@@ -15,6 +31,8 @@ def add_contacts():
         file.write(f"{contact['name']},{contact['email']},{contact['phone']}\n")
 
     print("Contact Added Successfully!.....")
+    footer()
+    
     
     
 def view_contacts():
@@ -28,6 +46,7 @@ def view_contacts():
             line = file.readline()
 
     print("\nEnd of the Contacts")
+    footer()
     
 def search_contact(key):
     with open(file_path, "r") as file:
@@ -40,11 +59,13 @@ def search_contact(key):
                 print("Email:", email)
                 print("Phone:", phone)
                 print("-" * 30)
+                footer()
                 break 
             else:
                 line = file.readline()
         else :
             print("No Contact Found!")
+    
     
 def main():
     print("------Welcome to the Contact Directory------\n")
@@ -53,6 +74,7 @@ def main():
     print("2.View All Contacts")
     print("3.Search Contacts")
     print("4.Exit")
+    print("\n")
     
     userinput = input("Selection: ")
  
