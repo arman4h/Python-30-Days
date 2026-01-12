@@ -12,13 +12,65 @@ def add_contacts():
     }
     
     with open(file_path, 'a') as file:
-        file.write(f"{contact['name']}, {contact['email']}, {contact['phone']}\n")
+        file.write(f"{contact['name']},{contact['email']},{contact['phone']}\n")
 
     print("Contact Added Successfully!.....")
     
+    
+def view_contacts():
+    print("#### All Save Contacts ####")
+    print("Name        -----        Email        -----        Phone")
+
+    with open(file_path, "r") as file:
+        line = file.readline()
+        while line:
+            print(line.strip())
+            line = file.readline()
+
+    print("\nEnd of the Contacts")
+    
+def search_contact(key):
+    with open(file_path, "r") as file:
+        line = file.readline()
+        while line:
+            name, email, phone = line.strip().split(",")
+            if key in name.lower() or email.lower():
+                print("\n Contact Found: ")
+                print("Name: ", name)
+                print("Email:", email)
+                print("Phone:", phone)
+                print("-" * 30)
+                break 
+            else:
+                line = file.readline()
+        else :
+            print("No Contact Found!")
+    
 def main():
-    print("This is the main function")
-    add_contacts()
+    print("------Welcome to the Contact Directory------\n")
+    print("Choose Option: \n")
+    print("1.Add Contacts")
+    print("2.View All Contacts")
+    print("3.Search Contacts")
+    print("4.Exit")
+    
+    userinput = input("Selection: ")
+ 
+    if userinput == "1" :
+        add_contacts()
+    elif userinput == "2":
+        view_contacts()
+    elif userinput == "3" :
+        key = input("Enter Name or Email Here: ")
+        search_contact(key)
+    elif userinput == "4" :
+        print("Have a good day ! ")
+        return 0 
+    else :
+        print("Invalid Input ! Try Again...\n")
+        main()
+    
+    
 
 if __name__ == "__main__":
     main()
